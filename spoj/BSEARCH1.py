@@ -2,7 +2,7 @@
 
 def binarySearch(key, i, j):
 	
-	if i > j and array[i] > key and array[j] < key:
+	if i > j or array[i] > key or array[j] < key:
 		return -1
 	
 	else:	
