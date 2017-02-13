@@ -1,7 +1,7 @@
 import Queue as qq
 import sys
 
-sys.setrecursionlimit(10000) # limite da recursao
+sys.setrecursionlimit(2090000000) # limite da recursao
 
 def dfs(row, col):
 
