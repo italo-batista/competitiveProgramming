@@ -17,24 +17,13 @@ def dfs(row, col):
             dfs(i, row)
 
 
-def first_execution():
-    for i in range(n):
-        if visited[i].count(True) == 0:
-            return (i, i)
-
-
 def check():
     qnt = len(modified)
-    for i in range(n):
-        if i in modified:
-            if visited[i].count(True) != qnt:
+    for t in range(n):
+        if t in modified:
+            if visited[t].count(True) != qnt:
                 return False
-        else:
-            if visited[i].count(True) == 0:
-                return (i, i)
-    return NONE
-
-
+    return True
 
 
 # FLOW STARTS HERE
@@ -44,7 +33,6 @@ n = int(raw_input())
 graph = []
 visited = []
 queue = qq.Queue()
-NONE = "NONE"
 
 for vez in range(n):
     new_row = list(str(raw_input()))
@@ -53,31 +41,26 @@ for vez in range(n):
 
 
 tam_families = []
-other_family = first_execution()
 checked = True
-while other_family != NONE:
 
-    modified = []
+for l in range(len(graph)):
+    for j in range(len(graph[0])):
 
-    row = other_family[0]
-    col = other_family[1]
+        if not visited[l][j] and graph[l][j] == "S":
 
-    modified.append(row)
+            modified = [l]
+            dfs(l, j)
 
-    dfs(row, col)
+            n_people = str( len(modified) )
+            tam_families.append(n_people)
 
-    n_people = str( len(modified) )
-    tam_families.append(n_people)
-
-    other_family = check()
-
-    if other_family == False:
-	checked = False
-        break
-
+            if not check():
+                checked = False
+                break
 
 if checked:
     print len(tam_families)
     print " ".join(tam_families)
 else:
     print "-1"
+
