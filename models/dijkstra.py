@@ -1,35 +1,51 @@
 import Queue
 
-grafo = []
+n, m = map(int, raw_input().split())
+LIMIT = 110010
 
-def djkistra(start, target):
 
-    LIMIT = 20001
-    NO = 1
-    Y = 0
-    PESO = 1
-    DIST = 1
+# MONTA ESTRUTURAS
 
+distances = [float('inf')] * LIMIT
+pares = [float('inf')] * LIMIT
+
+grafo = [0] * LIMIT
+for i in range(LIMIT): grafo[i] = []
+
+for i in range(m):
+        x, y, p = map(int, raw_input().split())
+        grafo[x].append((y, p))
+        grafo[y].append((x, p))
+
+
+# DJKISTRA ALGO
+
+def djkistra():
+
+    FIRST = 0
+    SECOND = 1
+
+    distances[1] = 0
     queue = Queue.PriorityQueue()
-    distances = [float('inf')] * LIMIT
-    visited = [False] * LIMIT
-
-    queue.put(start)
-    visited[start] = True
-    distances[start] = 0
+    queue.put((0, 1))
 
     while not queue.empty():
 
-        top = queue.get()
+        last_out = queue.get()
 
-        # top: (dist, (y, peso))
+        top = last_out[SECOND]
+        dist = last_out[FIRST]
 
-        for adj in grafo[top[NO][Y]]:
+        if dist == distances[top]:
 
-            if not visited[adj[Y]]:
-                distances[adj[Y]] = distances[top[DIST]] + top[NO][PESO]
-                visited[adj[Y]] = True
-                queue.put( (distances[adj[Y]], adj) )
+            for adj in grafo[top]:
 
-                if adj[Y] == target:
-                    return distances[adj[Y]]
+                no = adj[FIRST]
+                peso = adj[SECOND]
+
+                if distances[no] == -1 or distances[no] > dist + peso:
+                    distances[no] = dist + peso
+                    pair = (distances[no], no)
+                    queue.put(pair)
+
+                    pares[no] = top
