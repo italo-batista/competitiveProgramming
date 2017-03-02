@@ -1,0 +1,22 @@
+
+// para ler algo até que não tenha mais entrada / EOF
+
+while ( scanf ( "%d %d", &n, &k ) != EOF ) {
+    // do something
+}
+
+
+// para ler vários valores numa mesma linha semelhante ao map mais raw_intput.split
+fila = new int[tam];
+for ( i=1; i<tam; i++ ) {
+    cin >> fila[i];
+}
+
+// ou faça assim
+for ( i = 1; i < n; i++ ) {
+    scanf("%d", &array[i]);
+}
+
+// para compilar
+
+g++ app.cpp -o app
