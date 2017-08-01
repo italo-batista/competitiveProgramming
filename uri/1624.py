@@ -28,3 +28,12 @@ while n != 0:
 
 			elif j < pesos[i-1]:
 				dp[i][j] = dp[i-1][j]
+				
+			else:
+				sol1 = dp[i-1][j]
+				sol2 = dp[i-1][j - pesos[i-1]] + valores[i-1]
+				
+				dp[i][j] = max(sol1, sol2)
+				
+	print dp[n][m]		
+	n = int(raw_input())
