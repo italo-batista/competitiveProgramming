@@ -16,16 +16,7 @@ int my_min(int a, int b, int c) {
    return min(min(a, b), c);
 }
 
-int editDistance(string s1, string s2, int tam1, int tam2) {
-		
-	if (s1[tam1-1] == s2[tam2-1]) {
-		return editDistance(s1, s2, tam1-1, tam2-1);
-	}
-	
-
-}
-
-int main(){
+int main() {
 		
 	// dp[all i] = -1		
 	memset(dp, -1, sizeof(dp)); 
