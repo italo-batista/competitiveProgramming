@@ -42,6 +42,8 @@ def floydWarshall(graph):
         for i in range(V):
             for j in range(V):
                 dp[i][j] = min( dp[i][j], dp[i][k] + dp[k][j] )
+	printMatrix(dp)
+	print ""
 
     distances = dp
     return distances
