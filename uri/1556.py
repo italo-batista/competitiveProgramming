@@ -1,3 +1,6 @@
+
+# BRUTE FORCE
+
 while True:
 	try:
 		sequence = str(raw_input())
@@ -10,10 +13,7 @@ while True:
 								
 					m_sequence = sequence[:i] + sequence[i+1:]					
 				
-					try:
-						substrings[m_sequence]
-				
-					except Exception:					
+					if not substrings.has_key(m_sequence):								
 						substrings[m_sequence] = True					
 						remove_letters(m_sequence)
 						
