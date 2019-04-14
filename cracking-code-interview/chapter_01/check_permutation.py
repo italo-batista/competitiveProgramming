@@ -6,7 +6,7 @@ def check_permutation(str1, str2):
 		return False
 	
 	tam = len(str1)
-letters = dict((letter, 0) for letter in set(str1))          # hash table
+	letters = dict((letter, 0) for letter in set(str1))          # hash table
 
 	for i in xrange(tam):		
 		l1 = str1[i]
