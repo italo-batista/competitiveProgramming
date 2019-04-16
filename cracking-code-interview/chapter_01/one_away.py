@@ -1,3 +1,5 @@
+
+
 def one_away(str1, str2):
     
     i, j, count_op = 0, 0 ,0
@@ -30,6 +32,7 @@ def one_away(str1, str2):
     if count_op > 1:
         return False
     return True
+
 
 assert one_away('pale', 'ple') == True
 assert one_away('pales', 'pale') == True
