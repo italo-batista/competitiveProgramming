@@ -6,7 +6,7 @@ class StackNode:
         self.min_value = min_value
 
     def __str__(self):
-        return "StackNode{value: " + str(self.value) + " }\n"
+        return "StackNode{value: " + str(self.value) + " }"
 
     def __repr__(self):
         return self.__str__()

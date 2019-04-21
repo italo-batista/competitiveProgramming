@@ -20,3 +20,4 @@ if __name__ == '__main__':  # tests
 
     stack.pop()
     assert stack.min() == 1
+
